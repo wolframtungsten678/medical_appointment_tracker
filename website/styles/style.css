@@ -1,0 +1,54 @@
+@import url("style_reset.css");
+
+html {
+    font-size: 14px;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #000000;
+}
+
+body {
+    width: 600px;
+    margin: 0 auto;
+    background-color: #000000;
+    padding: 0 20px 20px 20px;
+}
+
+footer,
+h1,
+h2,
+header,
+li,
+p {
+    color: #ffffff;
+}
+
+a {
+    color: #0091ff;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+header {
+    font-size: 32px; 
+}
+
+li {
+    list-style-type: disc;
+}

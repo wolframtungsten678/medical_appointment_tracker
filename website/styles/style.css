@@ -1,54 +1,120 @@
 @import url("style_reset.css");
 
 html {
-    font-size: 14px;
-    font-family: "Roboto Mono", monospace;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    background-color: #000000;
+    background-color: #27272B;
 }
 
 body {
-    width: 600px;
-    margin: 0 auto;
-    background-color: #000000;
-    padding: 0 20px 20px 20px;
-}
-
-footer,
-h1,
-h2,
-header,
-li,
-p {
-    color: #ffffff;
+    max-inline-size: 800px;
+    margin-inline: auto;
+    background-color: #27272B;
+    padding: 0 20px 0 20px;
+    color: #D7D7E0;
+    line-height: 1.4;
 }
 
 a {
-    color: #0091ff;
-    font-size: 20px;
-    text-decoration: underline;
+    color: #000000;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-inline: 40px;
+    padding: 5px;
+    background-color: #FDE3A7;
+    display: inline-block;
+    inline-size: 100px;
+}
+
+a:hover {
+    color: #0A0059;
+}
+
+a:focus-visible {
+    color: #0A0059;
+    border: 4px solid #ffffff;
+}
+
+.home-nav {
+    inline-size: 250px;
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.main-li {
+    list-style-type: none;
+    margin-inline-start: 0;
+    margin-block: 15px;
+}
+
+.remove-marker li::marker {
+    content: "";
+}
+
+nav {
+    padding-block: 10px;
+    padding-inline: 5px;
+    border-block-end: 3px #FDE3A7 solid;
+    text-align: center;
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 1.75rem;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 30px;
 }
 
 img {
   display: block;
   margin: 0 auto;
+  margin-block: 10px;
   max-width: 100%;
 }
 
 header {
-    font-size: 32px; 
+    font-size: 2.25rem; 
+    font-weight: bold;
+    background-color: #FDE3A7;
+    color: #000000;
+    text-align: center;
+    padding: 10px;
 }
 
 li {
-    list-style-type: disc;
+    margin-block-end: 5px;
+    margin-inline-start: 75px;
+}
+
+ul li::marker {
+    content: '💊     ';
+}
+
+p {
+    margin-block-start: 5px;
+    margin-block-end: 10px;
+    padding-inline-start: 10px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+footer {
+    text-align: center;
+    background-color: #FDE3A7;
+    color: #000000;
+    padding-block: 10px 10px;
 }

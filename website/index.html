@@ -8,29 +8,41 @@
     </head>
     <body>
         <div class="wrapper">
-            <header>Medical Appointment Manager</header>
-            
-            <nav class="primary-navigation" aria-label="Primary Navigation">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="html/about.html">About</a></li>
-                    <li><a href="html/manage.html">Manage</a></li>
-                    <li><a href="html/contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            
-            <main>
-                <div class="remove-marker">
-                    <h1>What would you like to do today?</h1>
+            <div class="header-and-nav-grid">
+                <header>Medical Appointment Manager</header>
+                
+                <nav class="primary-navigation" aria-label="Primary Navigation">
                     <ul>
-                        <li class="main-li"><a class="home-nav" href="html/add-appointment.html">Add Appointment</a></li>
-                        <li class="main-li"><a class="home-nav" href="html/view-providers.html">View Providers</a></li>
-                        <li class="main-li"><a class="home-nav" href="html/view-appointments.html">View Appointments</a></li>
-                        <li class="main-li"><a class="home-nav" href="html/manage.html">Manage Providers, Locations, or Appointment Types</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="html/about.html">About</a></li>
+                        <li><a href="html/manage.html">Manage</a></li>
+                        <li><a href="html/contact.html">Contact</a></li>
                     </ul>
-                </div>
-            </main>
-            <footer>© 2026 Heather Konecny. All rights reserved.</footer>
+                </nav>
+            </div>
+            <div class="main-content-grid">
+                <main>
+                    <h1>Upcoming Appointments</h1>
+                    <p>[PLACEHOLDER FOR CALENDAR]</p>
+                    
+                    <h1>What would you like to do today?</h1>
+                    <div class="two-column-layout">
+                        <div class="remove-marker">
+                            <ul>
+                                <li class="main-li"><a class="home-nav" href="html/add-appointment.html">Add Appointment</a></li>
+                                <li class="main-li"><a class="home-nav" href="html/view-providers.html">View Providers</a></li>
+                                <li class="main-li"><a class="home-nav" href="html/view-appointments.html">View Appointments</a></li>
+                                <li class="main-li"><a class="home-nav" href="html/manage.html">Manage Providers, Locations, or Appointment Types</a></li>
+                            </ul>
+                        </div>
+
+                        <img src="images/stethoscope-smartphone.jpg" alt="A blue stethoscope lying on a clean white countertop next to a smartphone">
+                    </div>
+                </main>
+            </div>
+            <div class="footer-grid">
+                <footer>©2026 Heather Konecny. All rights reserved.</footer>
+            </div>
         </div>
     </body>
 </html>

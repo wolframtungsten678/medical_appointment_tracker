@@ -8,22 +8,36 @@
     </head>
     <body>
         <div class="wrapper">
-            <header>Medical Appointment Manager</header>
+            <div class="header-and-nav-grid">
+                <header>Medical Appointment Manager</header>
 
-            <nav class="primary-navigation" aria-label="Primary Navigation">
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="manage.html">Manage</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+                <nav class="primary-navigation" aria-label="Primary Navigation">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="manage.html">Manage</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
             
-            <main>
-                <h1>Manage</h1>
-                <p>[PLACEHOLDER FOR ENTRY FORM]</p>
-            </main>
-            <footer>© 2026 Heather Konecny. All rights reserved.</footer>
+            <div class="main-content-grid">
+                <main>
+                    <h1>Manage</h1>
+                    <form method="post">
+                        <label for="manage-option">Add:</label>
+                        <select name="Manage" id="manage-options">
+                            <option value="">--Please choose an option--</option>
+                            <option value="Provider">Provider</option>
+                            <option value="Location">Location</option>
+                            <option value="Appointment Purpose">Appointment Purpose</option>
+                        </select>
+                    </form>
+                </main>
+            </div>
+            <div class="footer-grid">
+                <footer>©2026 Heather Konecny. All rights reserved.</footer>
+            </div>
         </div>
     </body>
 </html>

@@ -25,13 +25,28 @@
                 <main>
                     <h1>Manage</h1>
                     <form method="post">
-                        <label for="manage-option">Add:</label>
-                        <select name="Manage" id="manage-options">
-                            <option value="">--Please choose an option--</option>
-                            <option value="Provider">Provider</option>
-                            <option value="Location">Location</option>
-                            <option value="Appointment Purpose">Appointment Purpose</option>
-                        </select>
+                        <div class="aligned-form">
+                            <div>
+                                <label for="manage-options">Select which information you would like to add</label>
+                            </div>
+                            <div>
+                                <select onchange="redirectToPage(this.value)" id="manage-options">
+                                    <option value="">--Please choose an option--</option>
+                                    <option value="add-provider.html">Provider</option>
+                                    <option value="add-location.html">Location</option>
+                                    <option value="add-appointment-purpose.html">Appointment Purpose</option>
+                                </select>
+                            </div>
+                        </div>
+                    
+                        <script>
+                            function redirectToPage(url) {
+                                if (url) {
+                                    window.location.href = url;
+                                }
+                            }
+                        </script>
+                    
                     </form>
                 </main>
             </div>

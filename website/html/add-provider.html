@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head> 
+        <meta charset="utf-8" />
+        <meta name="viewport" content = "width=device-width" />
+        <title>Add Provider - Medical Appointment Manager</title>
+        <link href="../styles/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header-and-nav-grid">
+                <header>Medical Appointment Manager</header>
+
+                <nav class="primary-navigation" aria-label="Primary Navigation">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="manage.html">Manage</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <main>
+                <h1>Add Provider</h1>
+                <p>Please complete all required (*) fields.</p>
+                <form method="post">
+                    <div class="aligned-form">
+                        <div class="form-row-height-label">
+                            <label for="provider-first-name">First Name *</label>
+                        </div>
+                        <div class="form-row-height">
+                            <input type="text" id="provider-first-name" name="provider-first-name" required>
+                        </div>
+
+                        <div class="form-row-height-label">
+                            <label for="provider-last-name">Last Name *</label>
+                        </div>
+                        <div class="form-row-height">
+                            <input type="text" id="provider-last-name" name="provider-last-name" required>
+                        </div>
+
+                        <div class="form-row-height-label">
+                            <label for="provider-specialty">Specialty *</label>
+                        </div>
+                        <div class="form-row-height">
+                            <select name="provider-specialty" id="provider-specialty" required>
+                                <option value="">--Select provider specialty--</option>
+                                <option value="add-new-speciality">Add new specialty</option>
+                                <option value="audiology">Audiology</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="dentist">Dentist</option>
+                                <option value="dermatology">Dermatology</option>
+                                <option value="gastroenterology">Gastroenterology</option>
+                                <option value="gp">General Practitioner</option>
+                                <option value="genetics">Genetics</option>
+                                <option value="gynecology">Gynecology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="neuropsychology">Neuropsychology</option>
+                                <option value="occupational-therapy">Occupational Therapy</option>
+                                <option value="oncology">Oncology</option>
+                                <option value="ophthalmology">Ophthalmology</option>
+                                <option value="optometry">Optometry</option>
+                                <option value="orthodontics">Orthodontics</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="pain-management">Pain Management</option>
+                                <option value="physical-therapy">Physical Therapy</option>
+                                <option value="podiatry">Podiatry</option>
+                                <option value="psychotherapy">Psychotherapy</option>
+                                <option value="rheumatology">Rheumatology</option>
+                                <option value="vascular-surgeon">Vascular Surgeon</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row-height-label">
+                            <label for="provider-phone-number">Phone Number *</label>
+                        </div>
+                        <div class="form-row-height">
+                            <input type="tel" id="provider-phone-number" name="provider-phone-number" placeholder="e.g. (999) 999-9999" required>
+                        </div>
+
+                        <div class="form-row-height-label">
+                            <label for="provider-website">Website</label>
+                        </div>
+                        <div class="form-row-height">
+                            <input type="url" id="provider-website" name="provider-website" placeholder="e.g. www.myprovider.com">
+                        </div>
+
+                        <div class="form-row-height-label">
+                            <label for="provider-fax">Fax Number</label>
+                        </div>
+                        <div class="form-row-height">
+                            <input type="tel" id="provider-fax" name="provider-fax" placeholder="e.g. (999) 999-9999">
+                        </div>
+
+                        <div class="form-row-height-label">
+                            <label for="provider-email">Email Address</label>
+                        </div>
+                        <div class="form-row-height">
+                            <input type="email" id="provider-email" name="provider-email" placeholder="e.g. myprovider@gmail.com">
+                        </div>
+
+                        <div class="form-row-height-label">
+                            <label for="scheduling-type">Scheduling Type</label>
+                        </div>
+                        <div class="form-row-height">
+                            <select name="scheduling-type" id="scheduling-type">
+                                <option value="">--Select scheduling type--</option>
+                                <option value="phone">Phone</option>
+                                <option value="online">Online</option>
+                                <option value="patient-portal">Patient Portal</option>
+                                <option value="zocdoc">Zocdoc</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row-height-label">
+                            <label for="add-provider-location">Provider location</label>
+                        </div>
+                        <div class="form-row-height">
+                            <select name="add-provider-location" id="add-provider-location">
+                                <option value="">--Select provider location--</option>
+                                <!--WILL NEED TO PULL IN EXISTING PROVIDERS HERE-->
+                            </select>
+                        </div>
+                    </div>
+                    <p class="button">
+                        <button type="submit">Add provider</button>
+                    </p>
+                </form>
+
+            </main>
+
+            <div class="footer-grid">
+                <footer>©2026 Heather Konecny. All rights reserved.</footer>
+            </div>
+        </div>
+
+</html>

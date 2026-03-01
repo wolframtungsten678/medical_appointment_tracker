@@ -26,42 +26,58 @@
                     <h1>Add Appointment</h1>
                     <p>Please complete all required (*) fields.</p>
                     <form method="post"> <!--will need to add action to this!-->
-                        <p>
+                        <div class="aligned-form">
+                            <div class="form-row-height-label"> 
                                 <label for="appt-date">Appointment Date *:</label>
-                                <input type="date" id="appt-date" name="appointment-date">
-                        </p>
-                        <p>
-                            <label for="appt-time">Appointment Time *:</label>
-                            <input type="time" id="appt-time" name="appointment-time">
-                        </p>
-                        <p>
-                            <label for="provider">Provider *:</label>
-                            <select name="provider-name" id="provider">
-                                <option value="">--Please select a provider--</option>
-                                <!--EXISTING PROVIDERS TO BE PULLED IN HERE-->
-                                <option value="add-new">Add New Provider</option>
-                            </select>
-                        </p>
-                        <p>
-                            <label for="appt-type">Appointment Type:</label>
-                            <select name="appointment_type" id="appt-type">
-                                <option value="">--Please select an appointment type--</option>
-                                <option value="annual-visit">Annual visit</option>
-                                <option value="follow-up">Follow-up</option>
-                                <option value="imaging">Imaging</option>
-                                <option value="labs">Labs</option>
-                                <option value="sick-visit">Sick visit</option>
-                                <option value="add-appt-type">Add new appointment type</option>
-                            </select>
-                        </p>
-                        <p>
-                            <label for="location">Location *:</label>
-                            <select name="appt-location" id="location">
-                                <option value="">--Please select appointment location--</option>
-                                <!--PULL IN EXISTING LOCATIONS HERE-->
-                                <option value="add-location">Add new location</option>
-                            </select>
-                        </p>
+                            </div>   
+                            <div class="form-row-height">
+                                <input type="date" id="appt-date" name="appointment-date" required>
+                            </div>
+                        
+                            <div class="form-row-height-label"> 
+                                <label for="appt-time">Appointment Time *:</label>
+                            </div>
+                            <div class="form-row-height">
+                                <input type="time" id="appt-time" name="appointment-time" required>
+                            </div>
+
+                            <div class="form-row-height-label">
+                                <label for="provider">Provider *:</label>
+                            </div>
+                            <div class="form-row-height">
+                                <select name="provider-name" id="provider" required>
+                                    <option value="">--Please select a provider--</option>
+                                    <!--EXISTING PROVIDERS TO BE PULLED IN HERE-->
+                                    <option value="add-new">Add New Provider</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row-height-label">
+                                <label for="appt-type">Appointment Type:</label>
+                            </div>
+                            <div class="form-row-height">
+                                <select name="appointment_type" id="appt-type">
+                                    <option value="">--Please select an appointment type--</option>
+                                    <option value="annual-visit">Annual visit</option>
+                                    <option value="follow-up">Follow-up</option>
+                                    <option value="imaging">Imaging</option>
+                                    <option value="labs">Labs</option>
+                                    <option value="sick-visit">Sick visit</option>
+                                    <option value="add-appt-type">Add new appointment type</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row-height-label">
+                                <label for="location">Location *:</label>
+                            </div>
+                            <div class="form-row-height">
+                                <select name="appt-location" id="location" required>
+                                    <option value="">--Please select appointment location--</option>
+                                    <!--PULL IN EXISTING LOCATIONS HERE-->
+                                    <option value="add-location">Add new location</option>
+                                </select>
+                            </div>
+                        </div>
                         <p class="button">
                             <button type="submit">Add appointment</button>
                         </p>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head> 
+        <meta charset="utf-8" />
+        <meta name="viewport" content = "width=device-width" />
+        <title>Add Appointment Purpose - Medical Appointment Manager</title>
+        <link href="../styles/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header-and-nav-grid">
+                <header>Medical Appointment Manager</header>
+
+                <nav class="primary-navigation" aria-label="Primary Navigation">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="manage.html">Manage</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <main>
+                <h1>Add Appointment Purpose</h1>
+                <p>Please complete all required (*) fields.</p>
+                    <form method="post">
+                        <div class="aligned-form">
+                           <div class="form-row-height-label">
+                                <label for="visit-purpose">Visit purpose description *</label>
+                           </div>
+                           <div class="form-row-height">
+                                <input type="text" id="visit-purpose" name="visit-purpose" placeholder="e.g. Annual exam">
+                           </div>
+
+                           <div class="form-row-height-label">
+                                <label for="appointment-frequency">Appointment Frequency *</label>
+                           </div>
+                           <div class="form-row-height">
+                                <select name="appointment-frequency" id="appointment-frequency">
+                                    <option value="">--Select Frequency--</option>
+                                    <option value="three-per-week">3x Weekly</option>
+                                    <option value="two-per-week">2x Weekly</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="biweekly">Every 2 Weeks</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="every-two-months">Every 2 Months</option>
+                                    <option value="quarterly">Quarterly</option>
+                                    <option value="six-months">Every 6 Months</option>
+                                    <option value="yearly">Annual</option>
+                                    <option value="appt-freq-other">Other</option>
+                                </select>
+                           </div>
+
+                           <div class="form-row-height-label">
+                                <label for="appt-reminder-needed">Appointment reminder needed? *</label>
+                           </div>
+                           <div class="form-row-height">
+                                <input type="checkbox" name="appt-reminder-needed" id="appt-reminder-needed">
+                           </div>
+                            
+                           <div class="form-row-height-label">
+                                <label for="sched-lead-time">Scheduling Lead Time (weeks)</label>
+                           </div>   
+                           <div class="form-row-height">
+                                <input type="number" id="sched-lead-time" name="sched-lead-time" placeholder="e.g. 6">
+                           </div>
+
+                           <div class="form-row-height-label">
+                                <label for="visit-duration">Typical visit duration (min)</label>
+                           </div>
+                           <div class="form-row-height">
+                                <input type="number" id="visit-duration" name="visit-duration" placeholder="e.g. 30">
+                           </div>
+
+                        </div>
+                        <p class="button">
+                            <button type="submit">Add appointment purpose</button>
+                        </p>
+
+                    </form>
+
+            </main>
+
+            <div class="footer-grid">
+                <footer>©2026 Heather Konecny. All rights reserved.</footer>
+            </div>
+        </div>
+
+</html>

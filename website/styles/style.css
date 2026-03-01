@@ -43,6 +43,29 @@ html {
     }
 }
 
+.aligned-form {
+    display: grid;
+    grid-template-columns: auto auto;
+    max-inline-size: 800px;
+    gap: 10px 10px;
+    padding-block-end: 10px;
+    padding-inline-start: 15px;
+}
+
+.form-row-height {
+    block-size: 40px;
+}
+
+.form-row-height-label {
+    block-size: 40px;
+    text-align: end;
+}
+
+.two-column-form-layout {
+    display: grid;
+    gap: 0px;
+}
+
 .primary-navigation ul {
     list-style-type: none;
     margin: 0;
@@ -72,11 +95,13 @@ a {
 }
 
 a:hover {
-    color: #59001b;
+    background-color: #817420;
+    color: #fefefe;
 }
 
 a:focus-visible {
-    color: #59001b;
+    color: #fefefe;
+    background-color: #817420;
     border: 4px solid #ffffff;
 }
 
@@ -164,12 +189,49 @@ footer {
     margin-top: auto;
 }
 
-input, 
+input {
+    border: 1px solid #ffffff;
+    background-color: #727277;
+    text-align: left;
+    padding: 1px;
+    margin-inline: 10px;
+    display: inline-block;
+}
+
+::placeholder {
+  color: #e0ffff;
+}
+
 select {
     border: 1px solid #ffffff;
+    background-color: #727277;
     text-align: center;
     padding: 1px;
     margin-inline: 10px;
+    appearance: auto;
+}
+
+input:focus-visible {
+    border: 5px solid #ffffff;
+    background-color: #454548;
+}
+
+input[type="checkbox"]:focus-visible {
+    border: 10px solid #454548;
+}
+
+input[type="checkbox"] {
+    appearance: auto;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    visibility: visible;
+    cursor: default;
+}
+
+select:focus-visible {
+    border: 5px solid #ffffff;
+    background-color: #454548;
 }
 
 label {
@@ -177,7 +239,7 @@ label {
 }
 
 button {
-    margin-inline-start: 150px;
+    margin-inline-start: 225px;
     color: #000000;
     font-size: 1.25rem;
     font-weight: bold;
@@ -187,4 +249,70 @@ button {
     inline-size: 200px;
     border-radius: 8px;
     text-align: center;
+}
+
+button:hover {
+    background-color: #817420;
+    color: #fefefe;
+}
+
+button:focus-visible {
+    color: #fefefe;
+    background-color: #817420;
+    border: 4px solid #ffffff;
+}
+
+table {
+    margin-block-start: 15px;
+    background-color: #454548;
+    border-collapse: collapse; 
+    width: 100%;
+}
+
+th,
+td {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+th {
+    background-color: #3a3a3c;
+    font-weight: bold;
+}
+
+tr:nth-of-type(2n) {
+    background-color: #626265;
+}
+
+caption {
+    padding: 0.5rem;
+    text-align: start;
+}
+
+@media(width < 600px) {
+    th {
+        display: none;
+    }
+
+    td {
+        display: grid;
+        grid-template-columns: 20ch auto;
+        gap: 0.25rem; 
+        padding: 0.25rem;
+        text-align: start;
+    }
+
+    td::before {
+        content: attr(data-cell) ": ";
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    td:first-child {
+        padding-block-start: 2rem;
+    }
+
+    td:last-child {
+        padding-block-end: 2rem; 
+    }
 }

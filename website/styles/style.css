@@ -52,8 +52,79 @@ html {
     padding-inline-start: 15px;
 }
 
+.aligned-form-short {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    max-inline-size: 800px;
+    gap: 10px 10px;
+    padding-block-end: 10px;
+    padding-inline-start: 15px;
+}
+
 .form-row-height {
     block-size: 40px;
+}
+
+.form-row-height-large-input {
+    block-size: 30px;
+    margin-inline-start: 15px;
+}
+
+.large-button {
+    margin-inline-start: 75px;
+    color: #000000;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 5px;
+    background-color: #FDE3A7;
+    display: inline-block;
+    inline-size: 600px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.medium-button {
+    margin-inline-start: 225px;
+    color: #000000;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 5px;
+    background-color: #FDE3A7;
+    display: inline-block;
+    inline-size: 375px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.large-button:hover {
+    background-color: #817420;
+    color: #fefefe;
+}
+
+.medium-button:hover {
+    background-color: #817420;
+    color: #fefefe;
+}
+
+.large-button:focus-visible {
+    color: #fefefe;
+    background-color: #817420;
+    border: 4px solid #ffffff;
+}
+
+.medium-button:focus-visible {
+    color: #fefefe;
+    background-color: #817420;
+    border: 4px solid #ffffff;
+}
+
+textarea {
+    border: 1px solid #ffffff;
+    background-color: #727277;
+    text-align: left;
+    padding: 1px;
+    margin-inline-start: 30px;
+    text-wrap-mode: wrap;
 }
 
 .form-row-height-label {

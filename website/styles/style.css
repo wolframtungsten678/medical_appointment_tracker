@@ -5,15 +5,15 @@ html {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    background-color: #27272B;
+    background-color: #0a2421;
 }
 
 .wrapper {
     max-inline-size: 800px;
     margin-inline: auto;
-    background-color: #27272B;
+    background-color: #0a2421;
     padding: 0 20px 0 20px;
-    color: #D7D7E0;
+    color: #FFFFFF;
     line-height: 1.4;
 
     min-height: 100vh;
@@ -41,6 +41,16 @@ html {
         grid-template-columns: 1fr 1fr;
     gap: 30px;
     }
+}
+
+.two-column-header {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+}
+
+.header-icon img {
+    inline-size: 75%;
+    margin-block: 0px;
 }
 
 .aligned-form {
@@ -72,55 +82,57 @@ html {
 
 .large-button {
     margin-inline-start: 75px;
-    color: #000000;
+    color: #ADF0DD;
     font-size: 1.25rem;
     font-weight: bold;
     padding: 5px;
-    background-color: #FDE3A7;
+    background-color: #084843;
     display: inline-block;
     inline-size: 600px;
     border-radius: 8px;
+    border: 2px solid #207E73;
     text-align: center;
 }
 
 .medium-button {
     margin-inline-start: 225px;
-    color: #000000;
+    color: #ADF0DD;
     font-size: 1.25rem;
     font-weight: bold;
     padding: 5px;
-    background-color: #FDE3A7;
+    background-color: #084843;
     display: inline-block;
     inline-size: 375px;
     border-radius: 8px;
+    border: 2px solid #207E73;
     text-align: center;
 }
 
 .large-button:hover {
-    background-color: #817420;
-    color: #fefefe;
+    background-color: #0D2D2A;
+    color: #ADF0DD;
 }
 
 .medium-button:hover {
-    background-color: #817420;
-    color: #fefefe;
+    background-color: #0D2D2A;
+    color: #ADF0DD;
 }
 
 .large-button:focus-visible {
-    color: #fefefe;
-    background-color: #817420;
-    border: 4px solid #ffffff;
+    color: #ADF0DD;
+    background-color: #0D2D2A;
+    border: 3px solid #207E73;
 }
 
 .medium-button:focus-visible {
-    color: #fefefe;
-    background-color: #817420;
-    border: 4px solid #ffffff;
+    color: #ADF0DD;
+    background-color: #0D2D2A;
+    border: 3px solid #207E73;
 }
 
 textarea {
-    border: 1px solid #ffffff;
-    background-color: #727277;
+    border: 1px solid #207E73;
+    background-color: #0D1514;
     text-align: left;
     padding: 1px;
     margin-inline-start: 30px;
@@ -155,25 +167,26 @@ textarea {
 }
 
 a {
-    color: #000000;
+    color: #ADF0DD;
     font-size: 1.25rem;
     font-weight: bold;
     padding: 5px;
-    background-color: #FDE3A7;
+    background-color: #084843;
     display: inline-block;
     inline-size: 100px;
     border-radius: 8px;
+    border: 2px solid #207E73;
 }
 
 a:hover {
-    background-color: #817420;
-    color: #fefefe;
+    background-color: #0D2D2A;
+    color: #ADF0DD;
 }
 
 a:focus-visible {
-    color: #fefefe;
-    background-color: #817420;
-    border: 4px solid #ffffff;
+    color: #ADF0DD;
+    background-color: #0D2D2A;
+    border: 3px solid #207E73;
 }
 
 .home-nav {
@@ -197,7 +210,7 @@ a:focus-visible {
 nav {
     padding-block: 10px;
     padding-inline: 5px;
-    border-block-end: 3px #FDE3A7 solid;
+    border-block-end: 3px #0EB39E solid;
     text-align: center;
 }
 
@@ -223,8 +236,8 @@ img {
 header {
     font-size: 2.25rem; 
     font-weight: bold;
-    background-color: #FDE3A7;
-    color: #000000;
+    background-color: #12A594;
+    color: #FFFFFF;
     text-align: center;
     padding: 10px;
 }
@@ -254,15 +267,15 @@ em {
 
 footer {
     text-align: center;
-    background-color: #FDE3A7;
-    color: #000000;
+    background-color: #084843;
+    color: #ADF0DD;
     padding-block: 10px 10px;
     margin-top: auto;
 }
 
 input {
-    border: 1px solid #ffffff;
-    background-color: #727277;
+    border: 1px solid #207E73;
+    background-color: #0D1514;
     text-align: left;
     padding: 1px;
     margin-inline: 10px;
@@ -270,12 +283,12 @@ input {
 }
 
 ::placeholder {
-  color: #e0ffff;
+  color: #0BD8B6;
 }
 
 select {
-    border: 1px solid #ffffff;
-    background-color: #727277;
+    border: 1px solid #207E73;
+    background-color: #0D1514;
     text-align: center;
     padding: 1px;
     margin-inline: 10px;
@@ -283,12 +296,12 @@ select {
 }
 
 input:focus-visible {
-    border: 5px solid #ffffff;
-    background-color: #454548;
+    border: 3px solid #207E73;
+    background-color: #0D2D2A;
 }
 
 input[type="checkbox"]:focus-visible {
-    border: 10px solid #454548;
+    border: 10px solid #0D2D2A;
 }
 
 input[type="checkbox"] {
@@ -301,8 +314,8 @@ input[type="checkbox"] {
 }
 
 select:focus-visible {
-    border: 5px solid #ffffff;
-    background-color: #454548;
+    border: 3px solid #207E73;
+    background-color: #0D2D2A;
 }
 
 label {
@@ -311,31 +324,32 @@ label {
 
 button {
     margin-inline-start: 225px;
-    color: #000000;
+    color: #ADF0DD;
     font-size: 1.25rem;
     font-weight: bold;
     padding: 5px;
-    background-color: #FDE3A7;
+    background-color: #084843;
     display: inline-block;
     inline-size: 200px;
     border-radius: 8px;
+    border: 2px solid #207E73;
     text-align: center;
 }
 
 button:hover {
-    background-color: #817420;
-    color: #fefefe;
+    background-color: #0D2D2A;
+    color: #ADF0DD;
 }
 
 button:focus-visible {
-    color: #fefefe;
-    background-color: #817420;
-    border: 4px solid #ffffff;
+    color: #ADF0DD;
+    background-color: #0D2D2A;
+    border: 3px solid #207E73;
 }
 
 table {
     margin-block-start: 15px;
-    background-color: #454548;
+    background-color: #12A594;
     border-collapse: collapse; 
     width: 100%;
 }
@@ -347,12 +361,13 @@ td {
 }
 
 th {
-    background-color: #3a3a3c;
+    background-color: #ADF0DD;
     font-weight: bold;
+    color: #0D2D2A;
 }
 
 tr:nth-of-type(2n) {
-    background-color: #626265;
+    background-color: #145750;
 }
 
 caption {

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-US">
+    <head> 
+        <meta charset="utf-8" />
+        <meta name="viewport" content = "width=device-width" />
+        <title>{% block title %}Site Title{% endblock %}</title>
+        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header-and-nav-grid">
+                <header>
+                    <div class="two-column-header">
+                        <div class="header-icon"> 
+                            <img src="{{ url_for('static', filename='images/calendar-check-white.svg') }}">
+                        </div>
+                        <div>
+                            Medical Appointment Manager
+                        </div>
+                    </div>
+                </header>
+                
+                <nav class="primary-navigation" aria-label="Primary Navigation">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/manage">Manage</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/sign-in">Sign In</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="main-content-grid">
+                <div>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            {% if category == 'error' %}
+                            <div class="flash-error" id="close-flash-error" role="alert">
+                                <div class="flash-columns">
+                                    <div class="flash-text">{{ message }}</div>
+                                    <div class="centered">
+                                        <button type="button" class="close-error">
+                                            x
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="flash-success" role="alert">
+                                <div class="flash-columns">
+                                    <div class="flash-text">{{ message }}</div>
+                                    <div class="centered">
+                                        <button type="button" class="close-success">
+                                            x
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                    {% endwith %}
+                </div>
+                
+                <main>
+                    {% block content %}
+                    {% endblock %}
+                </main>
+            </div>
+            <div class="footer-grid">
+                <footer>©2026 Heather Konecny. All rights reserved.</footer>
+            </div>
+        </div>
+    </body>
+</html>

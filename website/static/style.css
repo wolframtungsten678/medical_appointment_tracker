@@ -130,6 +130,31 @@ html {
     border: 3px solid #207E73;
 }
 
+.centered-button {
+    margin-inline-start: 0px;
+    color: #ADF0DD;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 5px;
+    background-color: #084843;
+    display: inline-block;
+    inline-size: 200px;
+    border-radius: 8px;
+    border: 2px solid #207E73;
+    text-align: center;
+}
+
+.centered-button:hover {
+    background-color: #0D2D2A;
+    color: #ADF0DD;
+}
+
+.centered-button:focus-visible {
+    color: #ADF0DD;
+    background-color: #0D2D2A;
+    border: 3px solid #207E73;
+}
+
 textarea {
     border: 1px solid #207E73;
     background-color: #0D1514;
@@ -189,11 +214,28 @@ a:focus-visible {
     border: 3px solid #207E73;
 }
 
+.regular-link {
+    color: #ADF0DD;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: underline;
+    border: none;
+    background-color: #0a2421;
+    padding: 0px;
+    padding-inline-start: 0px;
+    text-align: center;
+}
+
+.centered-p {
+    text-align: center;
+}
+
 .home-nav {
     inline-size: 250px;
     font-size: 1rem;
     text-align: center;
     padding: 10px;
+    background-color: #084843;
 }
 
 .main-li {
@@ -402,3 +444,57 @@ caption {
         padding-block-end: 2rem; 
     }
 }
+.flash-columns {
+    display: grid;
+    grid-template-columns: 1fr 0.05fr;
+}
+
+
+.flash-error {
+    background-color: #FF977D;
+    color: #000000;
+    padding-inline-start: 15px;
+}
+
+.flash-success {
+    background-color: #53B365;
+    color: #0E1511;
+    padding-inline-start: 15px;
+}
+
+.close-error {
+    color: #181111;
+    background-color: #FF977D;
+    border: none;
+    inline-size: 25px;
+    margin-inline: 5px;
+    font-size: 1rem;
+}
+
+.close-success {
+    color: #181111;
+    background-color: #53B365;
+    border: none;
+    inline-size: 25px;
+    margin-inline: 5px;
+    font-size: 1rem;
+}
+
+.close-error:hover {
+    background-color: #4E1511;
+    border: 1px solid #181111;
+    color: #FF977D;
+}
+
+.centered {
+    text-align: center;
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+}
+
+.flash-text {
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+    padding-inline-start: 10px;
+}
+

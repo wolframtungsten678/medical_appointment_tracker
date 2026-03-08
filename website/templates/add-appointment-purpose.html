@@ -1,36 +1,7 @@
-<!DOCTYPE html>
-<html lang="en-US">
-    <head> 
-        <meta charset="utf-8" />
-        <meta name="viewport" content = "width=device-width" />
-        <title>Add Appointment Purpose - Medical Appointment Manager</title>
-        <link href="../styles/style.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="wrapper">
-            <div class="header-and-nav-grid">
-                <header>
-                    <div class="two-column-header">
-                        <div class="header-icon"> 
-                            <img src="../images/calendar-check-white.svg">
-                        </div>
-                        <div>
-                            Medical Appointment Manager
-                        </div>
-                    </div>
-                </header>
+{%extends "base.html" %} {%block title %}Add Appointment Purpose - Medical Appointment Manager{% endblock %}
 
-                <nav class="primary-navigation" aria-label="Primary Navigation">
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="manage.html">Manage</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-            
-            <main>
+{% block content %}
+
                 <h1>Add Appointment Purpose</h1>
                 <p>Please complete all required (*) fields.</p>
                     <form method="post">
@@ -88,12 +59,4 @@
                         </p>
 
                     </form>
-
-            </main>
-
-            <div class="footer-grid">
-                <footer>©2026 Heather Konecny. All rights reserved.</footer>
-            </div>
-        </div>
-
-</html>
+{% endblock %}

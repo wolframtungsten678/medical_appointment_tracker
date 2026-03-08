@@ -1,0 +1,29 @@
+{%extends "base.html" %} {%block title %}Manage - Medical Appointment Manager{% endblock %}
+
+{% block content %}
+    <h1>Manage</h1>
+    <form method="post">
+        <div class="aligned-form">
+            <div>
+                <label for="manage-options">Select which information you would like to add</label>
+            </div>
+            <div>
+                <select onchange="redirectToPage(this.value)" id="manage-options">
+                    <option value="">--Please choose an option--</option>
+                    <option value="/manage/add-provider">Provider</option>
+                    <option value="/manage/add-location">Location</option>
+                    <option value="/manage/add-appointment-purpose">Appointment Purpose</option>
+                </select>
+            </div>
+        </div>
+    
+        <script>
+            function redirectToPage(url) {
+                if (url) {
+                    window.location.href = url;
+                }
+            }
+        </script>
+    
+    </form>
+{% endblock %}

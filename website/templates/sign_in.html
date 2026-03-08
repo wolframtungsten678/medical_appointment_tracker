@@ -1,0 +1,28 @@
+{%extends "base.html" %} {%block title %}Sign Up - Medical Appointment Manager{% endblock %}
+
+{% block content %}
+    <h1>Sign In</h1>
+    <form method="post">
+        <div class="aligned-form">
+            <div class="form-row-height-label">
+                <label for="username">Username</label>
+            </div>
+            <div>
+                <input type="text" name="username" id="username" placeholder="Enter username">
+            </div>
+            <div class="form-row-height-label">
+                <label for="password">Password</label>
+            </div>
+            <div>
+                <input type="password" name="password" id="password" placeholder="Enter password">
+            </div>
+        </div>
+        <p class="centered-p">
+            <button type="submit" class="centered-button">Sign In</button>
+        </p>
+        <p class="centered-p">Don't have an account?</p>
+        <p class="centered-p">
+            <a class="regular-link" href="/sign-up">Sign Up</a>
+        </p>
+    </form>
+{% endblock %}

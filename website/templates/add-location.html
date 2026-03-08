@@ -1,0 +1,69 @@
+{%extends "base.html" %} {%block title %}Add Location - Medical Appointment Manager{% endblock %}
+
+{% block content %}
+    <h1>Add Location</h1>
+    <p>Please complete all required (*) fields.</p>
+    <form method="post">
+        <div class="aligned-form">
+            <div class="form-row-height-label">
+                <label for="practice-name">Practice Name</label>
+            </div>
+            <div class="form-row-height">
+                <input type="text" id="practice-name" name="practice-name" placeholder="e.g. Sunnyside Hospital">
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="address-row-1">Address Row 1 *</label>
+            </div>
+            <div class="form-row-height">
+                <input type="text" id="address-row-1" name="address-row-1" placeholder="e.g. 1234 Rainbow Road" required>
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="address-row-2">Address Row 2</label>
+            </div>
+            <div class="form-row-height">
+                <input type="text" id="address-row-2" name="address-row-2" placeholder="e.g. Suite 2222">
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="city">City *</label>
+            </div>
+            <div class="form-row-height">
+                <input type="text" id="city" name="city" placeholder="e.g. Atlantis" required>
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="state">State *</label>
+            </div>
+            <div class="form-row-height">
+                <input type="text" id="state" name="state" placeholder="e.g. Indiana" required>
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="zip-code">Zip Code *</label>
+            </div>
+            <div class="form-row-height">
+                <input type="number" id="zip-code" name="zip-code" placeholder="e.g. 12345" required>
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="travel-home">Travel time from home (min)</label>
+            </div>
+            <div class="form-row-height">
+                <input type="number" id="travel-home" name="travel-home" placeholder="e.g. 20">
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="travel-work">Travel time from work (min)</label>
+            </div>
+            <div class="form-row-height">
+                <input type="number" id="travel-work" name="travel-work" placeholder="e.g. 45">
+            </div>
+
+        </div>
+        <p class="button">
+            <button type="submit">Add location</button>
+        </p>
+    </form>
+{% endblock %}

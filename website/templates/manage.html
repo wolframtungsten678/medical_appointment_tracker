@@ -5,7 +5,7 @@
     <form method="post">
         <div class="aligned-form">
             <div>
-                <label for="manage-options">Select which information you would like to add</label>
+                <label for="manage-options">Select which information you would like to ADD</label>
             </div>
             <div>
                 <select onchange="redirectToPage(this.value)" id="manage-options">
@@ -17,6 +17,20 @@
             </div>
         </div>
     
+        <div class="aligned-form">
+            <div>
+                <label for="manage-options">Select which information you would like to EDIT</label>
+            </div>
+            <div>
+                <select onchange="redirectToPage(this.value)" id="manage-options">
+                    <option value="">--Please choose an option--</option>
+                    <option value="/manage/edit-provider">Provider</option>
+                    <option value="/manage/edit-location">Location</option>
+                    <option value="/manage/edit-appointment-purpose-select">Appointment Purpose</option>
+                </select>
+            </div>
+        </div>
+
         <script>
             function redirectToPage(url) {
                 if (url) {

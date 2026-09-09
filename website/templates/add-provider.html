@@ -72,7 +72,7 @@
                 <label for="provider-website">Website</label>
             </div>
             <div class="form-row-height">
-                <input type="url" id="provider-website" name="provider-website" placeholder="e.g. www.myprovider.com">
+                <input type="url" id="provider-website" name="provider-website" placeholder="e.g. http://www.myprovider.com">
             </div>
 
             <div class="form-row-height-label">
@@ -90,10 +90,10 @@
             </div>
 
             <div class="form-row-height-label">
-                <label for="scheduling-type">Scheduling Type</label>
+                <label for="scheduling-method">Scheduling Type</label>
             </div>
             <div class="form-row-height">
-                <select name="scheduling-type" id="scheduling-type">
+                <select name="scheduling-method" id="scheduling-method">
                     <option value="">--Select scheduling type--</option>
                     <option value="phone">Phone</option>
                     <option value="online">Online</option>
@@ -109,7 +109,9 @@
             <div class="form-row-height">
                 <select name="add-provider-location" id="add-provider-location">
                     <option value="">--Select provider location--</option>
-                    <!--WILL NEED TO PULL IN EXISTING PROVIDERS HERE-->
+                    {% for dd_provider_location in dd_provider_locations %}
+                        <option value="{{dd_provider_location.id}}">{{dd_provider_location.address_row_1}}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>

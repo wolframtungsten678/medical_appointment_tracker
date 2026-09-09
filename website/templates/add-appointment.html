@@ -3,20 +3,20 @@
 {% block content %}
     <h1>Add Appointment</h1>
     <p>Please complete all required (*) fields.</p>
-    <form method="post"> <!--will need to add action to this!-->
+    <form method="post">
         <div class="aligned-form">
             <div class="form-row-height-label"> 
-                <label for="appt-date">Appointment Date *:</label>
+                <label for="appointment-date">Appointment Date *:</label>
             </div>   
             <div class="form-row-height">
-                <input type="date" id="appt-date" name="appointment-date" required>
+                <input type="date" id="appointment-date" name="appointment-date" required>
             </div>
         
             <div class="form-row-height-label"> 
-                <label for="appt-time">Appointment Time *:</label>
+                <label for="appointment-time">Appointment Time *:</label>
             </div>
             <div class="form-row-height">
-                <input type="time" id="appt-time" name="appointment-time" required>
+                <input type="time" id="appointment-time" name="appointment-time" required>
             </div>
 
             <div class="form-row-height-label">
@@ -25,8 +25,9 @@
             <div class="form-row-height">
                 <select name="provider-name" id="provider" required>
                     <option value="">--Please select a provider--</option>
-                    <!--EXISTING PROVIDERS TO BE PULLED IN HERE-->
-                    <option value="add-new">Add New Provider</option>
+                    {% for provider in providers %}
+                        <option value="{{provider.id}}">{{provider.first_name}} {{provider.last_name}}</option>
+                    {% endfor %}
                 </select>
             </div>
 
@@ -34,14 +35,11 @@
                 <label for="appt-type">Appointment Type:</label>
             </div>
             <div class="form-row-height">
-                <select name="appointment_type" id="appt-type">
+                <select name="appointment-type" id="appt-type">
                     <option value="">--Please select an appointment type--</option>
-                    <option value="annual-visit">Annual visit</option>
-                    <option value="follow-up">Follow-up</option>
-                    <option value="imaging">Imaging</option>
-                    <option value="labs">Labs</option>
-                    <option value="sick-visit">Sick visit</option>
-                    <option value="add-appt-type">Add new appointment type</option>
+                    {% for purpose in purposes %}
+                        <option value="{{purpose.id}}">{{purpose.visit_purpose}}</option>
+                    {% endfor %}
                 </select>
             </div>
 
@@ -49,10 +47,11 @@
                 <label for="location">Location *:</label>
             </div>
             <div class="form-row-height">
-                <select name="appt-location" id="location" required>
+                <select name="appointment-location" id="appointment-location" required>
                     <option value="">--Please select appointment location--</option>
-                    <!--PULL IN EXISTING LOCATIONS HERE-->
-                    <option value="add-location">Add new location</option>
+                    {% for location in locations %}
+                        <option value="{{location.id}}">{{location.address_row_1}}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>

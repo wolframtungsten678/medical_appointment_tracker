@@ -1,0 +1,16 @@
+{%extends "base.html" %} {%block title %}Add Location - Medical Appointment Manager{% endblock %}
+
+{% block content %}
+    <h1>Appointment added successfully!</h1>
+    
+    <p>Would you like to add another appointment?</p>
+    <div class="two-column-layout">
+        <div class="remove-marker">
+            <ul>
+                <li class="main-li"><a class="home-nav" href="/manage/add-appointment">Add New Appointment</a></li>
+            </ul>
+        </div>
+
+        <img src="{{ url_for('static', filename='images/stethoscope-smartphone.jpg') }}" alt="A photo of a blue stethoscope lying on a clean white countertop next to a smartphone">
+    </div>
+{% endblock %}

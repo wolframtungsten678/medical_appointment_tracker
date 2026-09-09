@@ -3,16 +3,40 @@
 {% block content %}
     <h1>Appointments</h1>
     <table>
-        <tr>
-            <th>Appointment Date</th>
-            <th>Appointment Time</th>
-            <th>Provider</th>
-            <th>Location</th>
-            <th>Appointment Purpose</th>
-        </tr>
-        <tr>
+        <thead>
+            <tr>
+                <th>Appointment Date</th>
+                <th>Appointment Time</th>
+                <th>Provider</th>
+                <th>Location</th>
+                <th>Appointment Purpose</th>
+            </tr>
+        </thead>
 
-        </tr>
+        <tbody>
+            {% for appointment in appointments %}
+               <tr>
+                    <td data-cell="Appointment Date">
+                         {{ appointment.appointment_datetime.strftime('%m/%d/%Y') if appointment.appointment_datetime else ''}} 
+                    </td>
+                    <td data-cell="Appointment Time">
+                        {{ appointment.appointment_datetime.strftime('%H:%M %p') if appointment.appointment_datetime else ''}}
+                    </td>
+                    <td data-cell="Provider">
+                        {{ appointment.provider.first_name if appointment.provider else "-"}}
+                        {{ appointment.provider.last_name if appointment.provider else "-"}}
+                    </td>
+                    <td data-cell="Location">
+                        {{ appointment.location_details.address_row_1 if appointment.location_details else "-"}}
+                    </td>
+                    <td data-cell="Appointment Purpose">
+                        {{ appointment.visit_purpose_details.visit_purpose if appointment.visit_purpose_details else "-" }}
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+
     </table>
 {% endblock %}
 

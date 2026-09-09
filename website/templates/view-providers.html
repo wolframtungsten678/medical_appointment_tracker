@@ -3,27 +3,37 @@
 {% block content %}
     <h1>Providers</h1>
     <table>
-        <tr>
-            <th>Provider Name</th>
-            <th>Specialty</th>
-            <th>Website</th>
-            <th>Phone Number</th>
-            <th>Scheduling Type</th>
-        </tr>
-        <tr>
-            <td data-cell="provider full name">David Happytooth</td>
-            <td data-cell="specialty">Dentist</td>
-            <td data-cell="website">www.happiestofteeth.com</td>
-            <td data-cell="provider phone number">(800) 588-2300</td>
-            <td data-cell="scheduling type">Zocdoc</td>
-        </tr>
-        <tr>
-            <td data-cell="provider full name">Stormy Beach</td>
-            <td data-cell="specialty">Dermatologist</td>
-            <td data-cell="website">www.beachyskin.com</td>
-            <td data-cell="provider phone number">(800) 867-5309</td>
-            <td data-cell="scheduling type">Phone</td>
-        </tr>
+       <thead>
+            <tr>
+                <th scope="col">Provider Name</th>
+                <th scope="col">Specialty</th>
+                <th scope="col">Website</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Scheduling Type</th>
+            </tr>
+       </thead>
+
+        <tbody>
+            {% for provider in providers %}
+                <tr>
+                    <td data-cell="Provider Name">
+                        {{ provider.first_name or ''}} {{ provider.last_name or ''}}
+                    </td>
+                    <td data-cell="Specialty">
+                        {{ provider.specialty_name or ''}}
+                    </td>
+                    <td data-cell="Website">
+                        {{ provider.website or ''}}
+                    </td>
+                    <td data-cell="Phone Number">
+                        {{ provider.phone_number or ''}}
+                    </td>
+                    <td data-cell="Scheduling Type">
+                        {{ provider.scheduling_type or ''}}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
 
 
     </table>

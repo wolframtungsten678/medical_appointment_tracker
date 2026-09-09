@@ -1,0 +1,29 @@
+{%extends "base.html" %} {%block title %}Edit Appointment Purpose - Medical Appointment Manager{% endblock %}
+
+{% block content %}
+
+     <h1>Edit Appointment Purpose</h1>
+     <form method="post">
+        <div class="aligned-form">
+            <div class="form-row-height-label">
+                <label for="appointment-purpose-select">Select appointment purpose to edit:</label>
+            </div>
+            <div class="form-row-height">
+                <select onchange="redirectToPage(this.value)" id="appointment-purpose-select">
+                        <option value="">--Select Appointment Purpose--</option>
+                    {% for purpose in appointment_purposes %}
+                        <option value="{{url_for('views.edit_appointment_purpose', purpose_id=purpose.id)}}">{{ purpose.visit_purpose }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <script>
+            function redirectToPage(url) {
+                if (url) {
+                    window.location.href = url;
+                }
+            }
+        </script>
+     </form>
+{% endblock %}

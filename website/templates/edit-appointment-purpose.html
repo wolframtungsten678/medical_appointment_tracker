@@ -35,7 +35,7 @@
                     <label for="appt-reminder-needed">Appointment reminder needed? *</label>
                </div>
                <div class="form-row-height">
-                    <input type="checkbox" name="appt-reminder-needed" id="appt-reminder-needed">
+                    <input type="checkbox" name="appt-reminder-needed" id="appt-reminder-needed" {% if purpose.scheduling_reminder %}checked{% endif %}>
                </div>
                
                <div class="form-row-height-label">

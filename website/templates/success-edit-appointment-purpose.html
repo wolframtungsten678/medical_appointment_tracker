@@ -1,0 +1,16 @@
+{%extends "base.html" %} {%block title %}Edit Appointment Purpose - Medical Appointment Manager{% endblock %}
+
+{% block content %}
+    <h1>Appointment purpose updated successfully!</h1>
+    
+    <p>Would you like to edit another appointment purpose?</p>
+    <div class="two-column-layout">
+        <div class="remove-marker">
+            <ul>
+                <li class="main-li"><a class="home-nav" href="/manage/edit-appointment-purpose-select">Edit Appointment Purpose</a></li>
+            </ul>
+        </div>
+
+        <img src="{{ url_for('static', filename='images/stethoscope-smartphone.jpg') }}" alt="A photo of a blue stethoscope lying on a clean white countertop next to a smartphone">
+    </div>
+{% endblock %}

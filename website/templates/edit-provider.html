@@ -1,0 +1,109 @@
+{%extends "base.html" %} {%block title %}Edit Provider - Medical Appointment Manager{% endblock %}
+
+{% block content %}
+    <h1>Edit Provider</h1>
+    <form method="post">
+        <div class="aligned-form">
+            <div class="form-row-height-label">
+                <label for="provider-first-name">First Name *</label>
+            </div>
+            <div class="form-row-height">
+                <input type="text" id="provider-first-name" name="provider-first-name" value="{{provider.first_name}}" required>
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="provider-last-name">Last Name *</label>
+            </div>
+            <div class="form-row-height">
+                <input type="text" id="provider-last-name" name="provider-last-name" value="{{provider.last_name}}" required>
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="provider-specialty">Specialty *</label>
+            </div>
+            <div class="form-row-height">
+                <select name="provider-specialty" id="provider-specialty" required>
+                    <option value=""{% if not provider.specialty_name %}selected{% endif %}>--Select provider specialty--</option>
+                    <option value="allergist"{% if provider.specialty_name=="allergist" %}selected{% endif %}>Allergy/Immunology</option>
+                    <option value="audiology"{% if provider.specialty_name=="audiology" %}selected{% endif %}>Audiology</option>
+                    <option value="cardiology"{% if provider.specialty_name=="cardiology" %}selected{% endif %}>Cardiology</option>
+                    <option value="chiropractor"{% if provider.specialty_name=="chiropractor" %}selected{% endif %}>Chiropractor</option>
+                    <option value="dentist"{% if provider.specialty_name=="dentist" %}selected{% endif %}>Dentist</option>
+                    <option value="dermatology"{% if provider.specialty_name=="dermatology" %}selected{% endif %}>Dermatology</option>
+                    <option value="ent"{% if provider.specialty_name=="ent" %}selected{% endif %}>Ear,Nose & Throat</option>
+                    <option value="endocrinology"{% if provider.specialty_name=="endocrinology" %}selected{% endif %}>Endocrinology</option>
+                    <option value="gastroenterology"{% if provider.specialty_name=="gastroenterology" %}selected{% endif %}>Gastroenterology</option>
+                    <option value="gp"{% if provider.specialty_name=="gp" %}selected{% endif %}>General Practitioner</option>
+                    <option value="genetics"{% if provider.specialty_name=="genetics" %}selected{% endif %}>Genetics</option>
+                    <option value="gynecology"{% if provider.specialty_name=="gynecology" %}selected{% endif %}>Gynecology</option>
+                    <option value="hematology"{% if provider.specialty_name=="hematology" %}selected{% endif %}>Hematology</option>
+                    <option value="infectious-disease"{% if provider.specialty_name=="infectious-disease" %}selected{% endif %}>Infectious Disease</option>
+                    <opotion value="nephrology"{% if provider.specialty_name=="nephrology" %}selected{% endif %}>Nephrology</opotion>
+                    <option value="neurology"{% if provider.specialty_name=="neurology" %}selected{% endif %}>Neurology</option>
+                    <option value="neuropsychology"{% if provider.specialty_name=="neuropsychology" %}selected{% endif %}>Neuropsychology</option>
+                    <option value="occupational-therapy"{% if provider.specialty_name=="occupational-therapy" %}selected{% endif %}>Occupational Therapy</option>
+                    <option value="oncology"{% if provider.specialty_name=="oncology" %}selected{% endif %}>Oncology</option>
+                    <option value="ophthalmology"{% if provider.specialty_name=="ophthalmology" %}selected{% endif %}>Ophthalmology</option>
+                    <option value="optometry"{% if provider.specialty_name=="optometry" %}selected{% endif %}>Optometry</option>
+                    <option value="orthodontics"{% if provider.specialty_name=="orthodontics" %}selected{% endif %}>Orthodontics</option>
+                    <option value="orthopedics"{% if provider.specialty_name=="orthopedics" %}selected{% endif %}>Orthopedics</option>
+                    <option value="pain-management"{% if provider.specialty_name=="pain-management" %}selected{% endif %}>Pain Management</option>
+                    <option value="physical-therapy"{% if provider.specialty_name=="physical-therapy" %}selected{% endif %}>Physical Therapy</option>
+                    <option value="podiatry"{% if provider.specialty_name=="podiatry" %}selected{% endif %}>Podiatry</option>
+                    <option value="psychotherapy"{% if provider.specialty_name=="psychotherapy" %}selected{% endif %}>Psychotherapy</option>
+                    <option value="pulmonology"{% if provider.specialty_name=="pulmonology" %}selected{% endif %}>Pulmonology</option>
+                    <option value="rheumatology"{% if provider.specialty_name=="rheumatology" %}selected{% endif %}>Rheumatology</option>
+                    <option value="sleep-specialist"{% if provider.specialty_name=="sleep-specialist" %}selected{% endif %}>Sleep Specialist</option>
+                    <option value="urology"{% if provider.specialty_name=="urology" %}selected{% endif %}>Urology</option>
+                    <option value="vascular-surgeon"{% if provider.specialty_name=="vascular-surgeon" %}selected{% endif %}>Vascular Surgeon</option>
+                </select>
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="provider-phone-number">Phone Number *</label>
+            </div>
+            <div class="form-row-height">
+                <input type="tel" id="provider-phone-number" name="provider-phone-number" value="{{provider.phone_number}}" required>
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="provider-website">Website</label>
+            </div>
+            <div class="form-row-height">
+                <input type="url" id="provider-website" name="provider-website" value="{{provider.website}}">
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="provider-fax">Fax Number</label>
+            </div>
+            <div class="form-row-height">
+                <input type="tel" id="provider-fax" name="provider-fax" value="{{provider.fax_number}}">
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="provider-email">Email Address</label>
+            </div>
+            <div class="form-row-height">
+                <input type="email" id="provider-email" name="provider-email" value="{{provider.email}}">
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="scheduling-method">Scheduling Type</label>
+            </div>
+            <div class="form-row-height">
+                <select name="scheduling-method" id="scheduling-method">
+                    <option value=""{% if not provider.scheduling_type %}selected{% endif %}>--Select scheduling type--</option>
+                    <option value="phone"{% if provider.scheduling_type=="phone" %}selected{% endif %}>Phone</option>
+                    <option value="online"{% if provider.scheduling_type=="online" %}selected{% endif %}>Online</option>
+                    <option value="patient-portal"{% if provider.scheduling_type=="patient-portal" %}selected{% endif %}>Patient Portal</option>
+                    <option value="zocdoc"{% if provider.scheduling_type=="zocdoc" %}selected{% endif %}>Zocdoc</option>
+                    <option value="other"{% if provider.scheduling_type=="other" %}selected{% endif %}>Other</option>
+                </select>
+            </div>
+
+        </div>
+        <p class="button">
+            <button type="submit">Update provider</button>
+        </p>
+    </form>
+{% endblock %}

@@ -18,8 +18,10 @@ class Providers(db.Model):
     email = db.Column(db.String(50))
     website = db.Column(db.String(100))
     scheduling_type = db.Column(db.String(50))
+
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     appointment_id = db.Column(db.Integer, db.ForeignKey('appointments.id'))
+
     locations = db.relationship('Locations', secondary=provider_locations, back_populates='providers')
     appointments = db.relationship('Appointments', foreign_keys='Appointments.provider_id', back_populates='provider')
     
@@ -28,6 +30,7 @@ class Appointments(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     appointment_datetime = db.Column(db.DateTime(timezone=True))
     status = db.Column(db.String(50))
+
     provider_id = db.Column(db.Integer, db.ForeignKey('providers.id'))
     location = db.Column(db.Integer, db.ForeignKey('locations.id'))
     visit_purpose = db.Column(db.Integer, db.ForeignKey('visit_purpose.id'))
@@ -47,8 +50,10 @@ class Locations(db.Model):
     zip_code = db.Column(db.String(10))
     travel_from_home = db.Column(db.Integer)
     travel_from_work = db.Column(db.Integer)
+
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     appointment_id = db.Column(db.Integer, db.ForeignKey('appointments.id'))
+
     appointments = db.relationship('Appointments', foreign_keys='Appointments.location', back_populates='location_details')
     providers = db.relationship('Providers', secondary=provider_locations, back_populates='locations')
 
@@ -59,15 +64,24 @@ class VisitPurpose(db.Model):
     scheduling_reminder = db.Column(db.Boolean)
     scheduling_lead_time = db.Column(db.Integer)
     visit_duration = db.Column(db.Integer)
+
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     appointment_id = db.Column(db.Integer, db.ForeignKey('appointments.id'))
+
     appointments = db.relationship('Appointments', foreign_keys='Appointments.visit_purpose', back_populates='visit_purpose_details')
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(50))
+
     providers = db.relationship('Providers', foreign_keys='Providers.user_id')
     appointments = db.relationship('Appointments', foreign_keys='Appointments.user_id')
     locations = db.relationship('Locations', foreign_keys='Locations.user_id')
     visit_purpose = db.relationship('VisitPurpose', foreign_keys='VisitPurpose.user_id')
+
+class Specialty(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    provider_specialty = db.Column(db.String(50), unique=True)
+
+    providers = db.relationship('Providers', foreign_keys='Providers.user_id')

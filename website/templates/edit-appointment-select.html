@@ -1,0 +1,40 @@
+{%extends "base.html" %} {%block title %}Edit Appointment - Medical Appointment Manager{% endblock %}
+
+{% block content %}
+
+    <h1>Select an appointment to edit</h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Provider Name</th>
+                <th scope="col">Location</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td data-cell="">
+                        <a class="regular-link" href="{{url_for('views.edit_appointment', appointment_id=appointment.id)}}">Edit</a>
+                    </td>
+                    <td data-cell="Date">
+                        {{ appointment.appointment_datetime.strftime('%m/%d/%Y') or '' }}
+                    </td>
+                    <td data-cell="Time">
+                        {{ appointment.appointment_datetime.strftime('%H:%M %p') if appointment.appointment_datetime else '' }}
+                    </td>
+                    <td data-cell="Provider Name">
+                        {{ appointment.provider.first_name }} {{ appointment.provider.last_name }}
+                    </td>
+                    <td data-cell="Location">
+                        {{ appointment.location_details.practice_name if appointment.location_details.practice_name else appointment.location_details.address_row_1}}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+{% endblock %}

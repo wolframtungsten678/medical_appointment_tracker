@@ -1,0 +1,61 @@
+{%extends "base.html" %} {%block title %}Edit Appointment - Medical Appointment Manager{% endblock %}
+
+{% block content %}
+    <h1>Edit Appointment</h1>
+    <form method="post">
+        <div class="aligned-form">
+            <div class="form-row-height-label"> 
+                <label for="appointment-date">Appointment Date *:</label>
+            </div>   
+            <div class="form-row-height">
+                <input type="date" id="appointment-date" name="appointment-date" value="{{appointment.appointment_datetime.strftime('%Y-%m-%d')}}" required>
+            </div>
+        
+            <div class="form-row-height-label"> 
+                <label for="appointment-time">Appointment Time *:</label>
+            </div>
+            <div class="form-row-height">
+                <input type="time" id="appointment-time" name="appointment-time" value="{{appointment.appointment_datetime.strftime('%H:%M')}}" required>
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="provider">Provider *:</label>
+            </div>
+            <div class="form-row-height">
+                <select name="provider-name" id="provider" required>
+                    <option value=""{% if not appointment.provider_id %}selected{% endif %}>--Please select a provider--</option>
+                    {% for provider in providers %}
+                        <option value="{{provider.id}}"{% if appointment.provider_id==provider.id %}selected{% endif %}>{{provider.first_name}} {{provider.last_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="appt-type">Appointment Type:</label>
+            </div>
+            <div class="form-row-height">
+                <select name="appointment-type" id="appt-type">
+                    <option value=""{% if not appointment.visit_purpose %}selected{% endif %}>--Please select an appointment type--</option>
+                    {% for purpose in purposes %}
+                        <option value="{{purpose.id}}"{% if appointment.visit_purpose==purpose.id %}selected{% endif %}>{{purpose.visit_purpose}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-row-height-label">
+                <label for="location">Location *:</label>
+            </div>
+            <div class="form-row-height">
+                <select name="appointment-location" id="appointment-location" required>
+                    <option value=""{% if not appointment.location %}selected{% endif %}>--Please select appointment location--</option>
+                    {% for location in locations %}
+                        <option value="{{location.id}}"{% if appointment.location==location.id %}selected{% endif %}>{{location.address_row_1}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <p class="button">
+            <button type="submit">Update appointment</button>
+        </p>
+    </form>
+{% endblock %}

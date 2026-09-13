@@ -2,13 +2,16 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from .models import db, Providers, Locations, VisitPurpose, Appointments
 from datetime import date, time, datetime
-from sqlalchemy.orm import joinedload
+from sqlalchemy.orm import joinedload, Session
 
 views = Blueprint('views', __name__)
 
 @views.route('/')
 def index():
-    return render_template("index.html")
+    appointments = db.session.execute(db.select(Appointments).order_by(Appointments.appointment_datetime)).scalars().all()
+    today = datetime.today()
+
+    return render_template("index.html", appointments=appointments, today=today)
 
 @views.route('/about')
 def about():
@@ -60,6 +63,52 @@ def add_appointment():
 
     return render_template("add-appointment.html", providers=providers, purposes=purposes, locations=locations)
 
+@views.route('/manage/edit-appointment-select')
+def edit_appointment_select():
+    appointments = db.session.execute(db.select(Appointments).order_by(Appointments.appointment_datetime)).scalars().all()
+
+    return render_template("edit-appointment-select.html", appointments=appointments)
+
+@views.route('/manage/appointments/<int:appointment_id>', methods=['GET', 'POST'])
+def edit_appointment(appointment_id):
+    appointment = db.first_or_404(db.select(Appointments).where(Appointments.id==appointment_id))
+    providers = db.session.execute(db.select(Providers).order_by(Providers.last_name)).scalars().all()
+    purposes = db.session.execute(db.select(VisitPurpose).order_by(VisitPurpose.visit_purpose)).scalars().all()
+    locations = db.session.execute(db.select(Locations).order_by(Locations.address_row_1)).scalars().all()
+
+    if request.method == 'POST':
+        updated_appointment = db.session.get(Appointments, appointment_id)
+
+        if updated_appointment is None: 
+            return "Appointment not found.", 404
+
+        updated_appointment_date = date.fromisoformat(request.form['appointment-date'])
+        updated_appointment_time = time.fromisoformat(request.form['appointment-time'])
+        updated_appointment_datetime = datetime.combine(updated_appointment_date, updated_appointment_time)
+        updated_appointment.appointment_datetime = updated_appointment_datetime
+
+        location_id = request.form.get('appointment-location', type=int)
+        provider_id = request.form.get('provider-name', type=int)
+        purpose_id = request.form.get('appointment-type', type=int)
+
+        if location_id is not None:
+            selected_location = db.get_or_404(Locations, location_id)
+            updated_appointment.location=selected_location.id
+
+        if provider_id is not None:
+            selected_provider = db.get_or_404(Providers, provider_id)
+            updated_appointment.provider_id=selected_provider.id
+
+        if purpose_id is not None:
+            selected_purpose = db.get_or_404(VisitPurpose, purpose_id)
+            updated_appointment.visit_purpose=selected_purpose.id
+
+        db.session.commit()
+
+        return redirect('/success-edit-appointment')
+
+    return render_template("edit-appointment.html", appointment=appointment, providers=providers, purposes=purposes, locations=locations)
+
 @views.route('/manage/add-appointment-purpose', methods=['GET', 'POST'])
 def add_appointment_purpose():
     purposes = db.session.execute(db.select(VisitPurpose).order_by(VisitPurpose.visit_purpose)).scalars().all()
@@ -82,6 +131,35 @@ def add_appointment_purpose():
 
     return render_template("add-appointment-purpose.html", purposes=purposes)
 
+@views.route('/manage/edit-location-select', methods=['GET', 'POST'])
+def edit_location_select():
+    locations = db.session.execute(db.select(Locations).order_by(Locations.address_row_1)).scalars().all()
+    return render_template("edit-location-select.html", locations=locations)
+
+@views.route('/manage/location/<int:location_id>', methods=['GET', 'POST'])
+def edit_location(location_id):
+    location = db.first_or_404(db.select(Locations).where(Locations.id == location_id))
+    if request.method == 'POST':
+        updated_location = db.session.get(Locations, location_id)
+
+        if updated_location is None: 
+            return "Location not found.", 404
+
+        updated_location.practice_name = request.form['practice-name']
+        updated_location.address_row_1 = request.form['address-row-1']
+        updated_location.address_row_2 = request.form['address-row-2']
+        updated_location.city = request.form['city']
+        updated_location.state = request.form['state']
+        updated_location.zip_code = request.form['zip-code']
+        updated_location.travel_from_home = request.form['travel-home']
+        updated_location.travel_from_work = request.form['travel-work']
+
+        db.session.commit()
+
+        return redirect('/success-edit-location')
+
+    return render_template("edit-location.html", location=location)
+
 @views.route('/manage/add-location', methods=['GET', 'POST'])
 def add_location():
     if request.method == 'POST':
@@ -102,6 +180,37 @@ def add_location():
         return redirect('/success-location')
 
     return render_template("add-location.html")
+
+@views.route('/manage/edit-provider-select')
+def edit_provider_select():
+    providers = db.session.execute(db.select(Providers).order_by(Providers.last_name)).scalars().all()
+    return render_template("edit-provider-select.html", providers=providers)
+
+@views.route('/manage/providers/<int:provider_id>', methods=['GET','POST'])
+def edit_provider(provider_id):
+    provider = db.first_or_404(db.select(Providers).where(Providers.id == provider_id))
+
+    if request.method == 'POST':
+        provider = db.session.get(Providers, provider_id)
+
+        if provider is None: 
+            return "Provider not found.", 404
+
+        provider.first_name = request.form['provider-first-name']
+        provider.last_name = request.form['provider-last-name']
+        provider.specialty_name = request.form['provider-specialty']
+        provider.phone_number = request.form['provider-phone-number']
+        provider.website = request.form['provider-website']
+        provider.fax_number = request.form['provider-fax']
+        provider.email = request.form['provider-email']
+        provider.scheduling_type = request.form['scheduling-method']
+
+        db.session.commit()
+
+        return redirect('/success-edit-provider')
+
+    return render_template('edit-provider.html', provider=provider)
+
 
 @views.route('/manage/add-provider', methods=['GET', 'POST'])
 def add_provider():
@@ -137,9 +246,28 @@ def edit_appointment_purpose_select():
     appointment_purposes = db.session.execute(db.select(VisitPurpose).order_by(VisitPurpose.visit_purpose)).scalars().all()
     return render_template("edit-appointment-purpose-select.html", appointment_purposes=appointment_purposes)
 
-@views.route('/manage/<int:purpose_id>')
+
+@views.route('/manage/appointment-purpose/<int:purpose_id>', methods=['GET', 'POST'])
 def edit_appointment_purpose(purpose_id):
     purpose = db.first_or_404(db.select(VisitPurpose).where(VisitPurpose.id == purpose_id))
+
+    if request.method == 'POST':
+        is_active = 'appt-reminder-needed' in request.form ##Converts checkbox to Boolean
+        visit_purpose = db.session.get(VisitPurpose, purpose_id)
+
+        if visit_purpose is None:
+            return "Visit purpose not found.", 404
+
+        visit_purpose.visit_purpose = request.form['visit-purpose']
+        visit_purpose.appointment_frequency = request.form['appointment-frequency']
+        visit_purpose.scheduling_reminder = is_active
+        visit_purpose.scheduling_lead_time = request.form['sched-lead-time']
+        visit_purpose.visit_duration = request.form['visit-duration']
+
+        db.session.commit()
+
+        return redirect('/success-edit-appointment-purpose')
+
     return render_template("edit-appointment-purpose.html", purpose=purpose)
 
 @views.route('/success-add-appointment')
@@ -147,8 +275,24 @@ def success_add_appointment():
     return render_template("success-add-appointment.html")
 
 @views.route('/success-appointment-purpose')
-def succcess_appt_purpose():
+def success_appt_purpose():
     return render_template("success-appointment-purpose.html")
+
+@views.route('/success-edit-appointment')
+def success_edit_appointment():
+    return render_template("success-edit-appointment.html")
+
+@views.route('/success-edit-appointment-purpose')
+def success_edit_appointment_purpose():
+    return render_template("success-edit-appointment-purpose.html")
+
+@views.route('/success-edit-location')
+def success_edit_location():
+    return render_template("success-edit-location.html")
+
+@views.route('/success-edit-provider')
+def success_edit_provider():
+    return render_template("success-edit-provider.html")
 
 @views.route('/success-provider')
 def success_provider():

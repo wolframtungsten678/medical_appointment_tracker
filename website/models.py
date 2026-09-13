@@ -5,14 +5,13 @@ from sqlalchemy import Column, Integer, ForeignKey
 provider_locations = db.Table(
     "provider_locations", 
     Column("Provider ID", Integer, ForeignKey('providers.id'), primary_key=True),
-    Column("Location ID", Integer, ForeignKey('locations.id'), primary_key=True)
+    Column("Location ID", Integer, ForeignKey('locations.id'), primary_key=True),
 )
 
 class Providers(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50))
     last_name = db.Column(db.String(50))
-    specialty_name = db.Column(db.String(100))
     phone_number = db.Column(db.Integer)
     fax_number = db.Column(db.Integer)
     email = db.Column(db.String(50))
@@ -21,7 +20,9 @@ class Providers(db.Model):
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     appointment_id = db.Column(db.Integer, db.ForeignKey('appointments.id'))
+    specialty_id = db.Column(db.Integer, db.ForeignKey('specialty.id'))
 
+    specialties = db.relationship('Specialty', back_populates='providers')
     locations = db.relationship('Locations', secondary=provider_locations, back_populates='providers')
     appointments = db.relationship('Appointments', foreign_keys='Appointments.provider_id', back_populates='provider')
     
@@ -73,15 +74,19 @@ class VisitPurpose(db.Model):
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True)
-    password = db.Column(db.String(50))
+    password = db.Column(db.Text)
 
     providers = db.relationship('Providers', foreign_keys='Providers.user_id')
     appointments = db.relationship('Appointments', foreign_keys='Appointments.user_id')
     locations = db.relationship('Locations', foreign_keys='Locations.user_id')
     visit_purpose = db.relationship('VisitPurpose', foreign_keys='VisitPurpose.user_id')
+    specialties = db.relationship('Specialty', foreign_keys='Specialty.user_id', back_populates='users')
 
 class Specialty(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     provider_specialty = db.Column(db.String(50), unique=True)
 
-    providers = db.relationship('Providers', foreign_keys='Providers.user_id')
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    users = db.relationship('User', foreign_keys='Specialty.user_id', back_populates='specialties')
+    providers = db.relationship('Providers', back_populates='specialties')

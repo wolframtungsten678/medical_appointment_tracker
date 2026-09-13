@@ -23,39 +23,39 @@
             </div>
             <div class="form-row-height">
                 <select name="provider-specialty" id="provider-specialty" required>
-                    <option value=""{% if not provider.specialty_name %}selected{% endif %}>--Select provider specialty--</option>
-                    <option value="allergist"{% if provider.specialty_name=="allergist" %}selected{% endif %}>Allergy/Immunology</option>
-                    <option value="audiology"{% if provider.specialty_name=="audiology" %}selected{% endif %}>Audiology</option>
-                    <option value="cardiology"{% if provider.specialty_name=="cardiology" %}selected{% endif %}>Cardiology</option>
-                    <option value="chiropractor"{% if provider.specialty_name=="chiropractor" %}selected{% endif %}>Chiropractor</option>
-                    <option value="dentist"{% if provider.specialty_name=="dentist" %}selected{% endif %}>Dentist</option>
-                    <option value="dermatology"{% if provider.specialty_name=="dermatology" %}selected{% endif %}>Dermatology</option>
-                    <option value="ent"{% if provider.specialty_name=="ent" %}selected{% endif %}>Ear,Nose & Throat</option>
-                    <option value="endocrinology"{% if provider.specialty_name=="endocrinology" %}selected{% endif %}>Endocrinology</option>
-                    <option value="gastroenterology"{% if provider.specialty_name=="gastroenterology" %}selected{% endif %}>Gastroenterology</option>
-                    <option value="gp"{% if provider.specialty_name=="gp" %}selected{% endif %}>General Practitioner</option>
-                    <option value="genetics"{% if provider.specialty_name=="genetics" %}selected{% endif %}>Genetics</option>
-                    <option value="gynecology"{% if provider.specialty_name=="gynecology" %}selected{% endif %}>Gynecology</option>
-                    <option value="hematology"{% if provider.specialty_name=="hematology" %}selected{% endif %}>Hematology</option>
-                    <option value="infectious-disease"{% if provider.specialty_name=="infectious-disease" %}selected{% endif %}>Infectious Disease</option>
-                    <opotion value="nephrology"{% if provider.specialty_name=="nephrology" %}selected{% endif %}>Nephrology</opotion>
-                    <option value="neurology"{% if provider.specialty_name=="neurology" %}selected{% endif %}>Neurology</option>
-                    <option value="neuropsychology"{% if provider.specialty_name=="neuropsychology" %}selected{% endif %}>Neuropsychology</option>
-                    <option value="occupational-therapy"{% if provider.specialty_name=="occupational-therapy" %}selected{% endif %}>Occupational Therapy</option>
-                    <option value="oncology"{% if provider.specialty_name=="oncology" %}selected{% endif %}>Oncology</option>
-                    <option value="ophthalmology"{% if provider.specialty_name=="ophthalmology" %}selected{% endif %}>Ophthalmology</option>
-                    <option value="optometry"{% if provider.specialty_name=="optometry" %}selected{% endif %}>Optometry</option>
-                    <option value="orthodontics"{% if provider.specialty_name=="orthodontics" %}selected{% endif %}>Orthodontics</option>
-                    <option value="orthopedics"{% if provider.specialty_name=="orthopedics" %}selected{% endif %}>Orthopedics</option>
-                    <option value="pain-management"{% if provider.specialty_name=="pain-management" %}selected{% endif %}>Pain Management</option>
-                    <option value="physical-therapy"{% if provider.specialty_name=="physical-therapy" %}selected{% endif %}>Physical Therapy</option>
-                    <option value="podiatry"{% if provider.specialty_name=="podiatry" %}selected{% endif %}>Podiatry</option>
-                    <option value="psychotherapy"{% if provider.specialty_name=="psychotherapy" %}selected{% endif %}>Psychotherapy</option>
-                    <option value="pulmonology"{% if provider.specialty_name=="pulmonology" %}selected{% endif %}>Pulmonology</option>
-                    <option value="rheumatology"{% if provider.specialty_name=="rheumatology" %}selected{% endif %}>Rheumatology</option>
-                    <option value="sleep-specialist"{% if provider.specialty_name=="sleep-specialist" %}selected{% endif %}>Sleep Specialist</option>
-                    <option value="urology"{% if provider.specialty_name=="urology" %}selected{% endif %}>Urology</option>
-                    <option value="vascular-surgeon"{% if provider.specialty_name=="vascular-surgeon" %}selected{% endif %}>Vascular Surgeon</option>
+                    <option value=""{% if not provider.specialty %}selected{% endif %}>--Select provider specialty--</option>
+                    <option value="allergist"{% if provider.specialty=="allergist" %}selected{% endif %}>Allergy/Immunology</option>
+                    <option value="audiology"{% if provider.specialty=="audiology" %}selected{% endif %}>Audiology</option>
+                    <option value="cardiology"{% if provider.specialty=="cardiology" %}selected{% endif %}>Cardiology</option>
+                    <option value="chiropractor"{% if provider.specialty=="chiropractor" %}selected{% endif %}>Chiropractor</option>
+                    <option value="dentist"{% if provider.specialty=="dentist" %}selected{% endif %}>Dentist</option>
+                    <option value="dermatology"{% if provider.specialty=="dermatology" %}selected{% endif %}>Dermatology</option>
+                    <option value="ent"{% if provider.specialty=="ent" %}selected{% endif %}>Ear,Nose & Throat</option>
+                    <option value="endocrinology"{% if provider.specialty=="endocrinology" %}selected{% endif %}>Endocrinology</option>
+                    <option value="gastroenterology"{% if provider.specialty=="gastroenterology" %}selected{% endif %}>Gastroenterology</option>
+                    <option value="gp"{% if provider.specialty=="gp" %}selected{% endif %}>General Practitioner</option>
+                    <option value="genetics"{% if provider.specialty=="genetics" %}selected{% endif %}>Genetics</option>
+                    <option value="gynecology"{% if provider.specialty=="gynecology" %}selected{% endif %}>Gynecology</option>
+                    <option value="hematology"{% if provider.specialty=="hematology" %}selected{% endif %}>Hematology</option>
+                    <option value="infectious-disease"{% if provider.specialty=="infectious-disease" %}selected{% endif %}>Infectious Disease</option>
+                    <opotion value="nephrology"{% if provider.specialty=="nephrology" %}selected{% endif %}>Nephrology</opotion>
+                    <option value="neurology"{% if provider.specialty=="neurology" %}selected{% endif %}>Neurology</option>
+                    <option value="neuropsychology"{% if provider.specialty=="neuropsychology" %}selected{% endif %}>Neuropsychology</option>
+                    <option value="occupational-therapy"{% if provider.specialty=="occupational-therapy" %}selected{% endif %}>Occupational Therapy</option>
+                    <option value="oncology"{% if provider.specialty=="oncology" %}selected{% endif %}>Oncology</option>
+                    <option value="ophthalmology"{% if provider.specialty=="ophthalmology" %}selected{% endif %}>Ophthalmology</option>
+                    <option value="optometry"{% if provider.specialty=="optometry" %}selected{% endif %}>Optometry</option>
+                    <option value="orthodontics"{% if provider.specialty=="orthodontics" %}selected{% endif %}>Orthodontics</option>
+                    <option value="orthopedics"{% if provider.specialty=="orthopedics" %}selected{% endif %}>Orthopedics</option>
+                    <option value="pain-management"{% if provider.specialty=="pain-management" %}selected{% endif %}>Pain Management</option>
+                    <option value="physical-therapy"{% if provider.specialty=="physical-therapy" %}selected{% endif %}>Physical Therapy</option>
+                    <option value="podiatry"{% if provider.specialty=="podiatry" %}selected{% endif %}>Podiatry</option>
+                    <option value="psychotherapy"{% if provider.specialty=="psychotherapy" %}selected{% endif %}>Psychotherapy</option>
+                    <option value="pulmonology"{% if provider.specialty=="pulmonology" %}selected{% endif %}>Pulmonology</option>
+                    <option value="rheumatology"{% if provider.specialty=="rheumatology" %}selected{% endif %}>Rheumatology</option>
+                    <option value="sleep-specialist"{% if provider.specialty=="sleep-specialist" %}selected{% endif %}>Sleep Specialist</option>
+                    <option value="urology"{% if provider.specialty=="urology" %}selected{% endif %}>Urology</option>
+                    <option value="vascular-surgeon"{% if provider.specialty=="vascular-surgeon" %}selected{% endif %}>Vascular Surgeon</option>
                 </select>
             </div>
 
